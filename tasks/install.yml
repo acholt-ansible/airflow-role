@@ -25,10 +25,9 @@
     group: "{{ airflow_group }}"
 
 - name: Airflow | Installing dependencies
-  apt:
+  yum:
     pkg: "{{ item }}"
     state: present
-    update_cache: yes
   with_items: "{{ airflow_required_libs }}"
 
 - name: Airflow | Installing Python pip dependencies
